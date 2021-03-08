@@ -8,25 +8,41 @@ const Pokedex = () => {
     const [pokemon, setPokemon] = useState('');
     const [id, setId] = useState('')
     const [name, setname] = useState('');
-    const [type, setType] = useState('');
-    const [sprite, setSprite] = useState('');
+    const [types, setTypes] = useState([]);
+    const [front, setFront] = useState('');
+    const [back, setBack] = useState('');
+    const [hp, sethp] = useState('');
+    const [attack, setAttack] = useState('');
+    const [defense, setDeffense] = useState('');
+    const [speed, setSpeed] = useState('');
 
     useEffect(() => {
         if(pokemon) {
             const promise = axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
             promise.then((response) => {
                 console.log(response.data)
-                setId(response.data.id)
+                setId(response.data.id);
                 setname(response.data.name);
-                setType(response.data.types[0].type.name);
-                setSprite(response.data.sprites.front_default);
+                setTypes(response.data.types);
+                setFront(response.data.sprites.front_default);
+                setBack(response.data.sprites.back_default);
+                sethp(response.data.stats[0].base_stat);
+                setAttack(response.data.stats[1].base_stat);
+                setDeffense(response.data.stats[2].base_stat);
+                setSpeed(response.data.stats[5].base_stat);
             });
         };
-    }, [pokemon])
+    }, [pokemon]);
+
+    const type = types.map((value) => {
+        const name = value.type.name
+        const typeName = name.concat(" ")
+        return (typeName)
+    });
 
     const handleSearchPokemon = (value) => {
         setPokemon(value);
-    }
+    };
 
     return (
         <div>
@@ -34,7 +50,7 @@ const Pokedex = () => {
             <p>You can find any pokemon writting your name</p>
             <PokemonFinder handleSearch={handleSearchPokemon} />
             <div className='grid'>
-                <PokeCard  id={id} name={name} type={type} sprite={sprite} />
+                <PokeCard  id={id} name={name.toUpperCase()} type={type} front={front} back={back} hp={hp} attack={attack} defense={defense} speed={speed} />
             </div>
         </div>
     )

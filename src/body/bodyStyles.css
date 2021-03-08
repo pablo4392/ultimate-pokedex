@@ -1,6 +1,6 @@
 /* POKEDEX */
 .grid {
-    margin: 5rem;
+    margin: 2.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
