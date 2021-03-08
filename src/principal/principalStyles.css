@@ -1,0 +1,51 @@
+/* START PAGE */
+.principal-page {
+    margin: 30px;
+}
+
+.img {
+    width: 14.5rem;
+    height: 20rem;
+}
+
+/* DIALOGUE CARD */
+.d-card {
+    margin: 20px;
+    border: solid 8px #78c4d4 ;
+    border-radius: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.title {
+    margin: 10px;
+    font-size: 23px ;
+}
+
+.text {
+    margin: 5px;
+    font-size: 18px;
+}
+
+/* START BOX */
+.input-box {
+    margin: 15px;
+}
+
+.input {
+    height: 2rem;
+    width: 8rem;
+    border: solid 3px #8c0000;
+    border-top-left-radius: 0.8rem;
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+}
+
+.button {
+    border: none;
+    border-bottom-right-radius: 0.8rem;
+    width: 4.5rem;
+    height: 2.5rem;
+    background-color: #8c0000;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
