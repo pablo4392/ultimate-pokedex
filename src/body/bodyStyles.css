@@ -1,4 +1,12 @@
 /* POKEDEX */
+.selector-card {
+    margin: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: solid 5px #28527a;
+    border-radius: 4rem;
+}
+
 .grid {
     margin: 2.5rem;
     display: flex;
@@ -26,5 +34,21 @@
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     color: #fff;
+    font-weight: bold;
+}
+
+/* POKEMON TYPE */
+.select-type {
+    margin: 0.7rem;
+}
+
+.select {
+    height: 2.2rem;
+    width: 8.5rem;
+    border-radius: 1rem;
+    background-color: #28527a;  
+    color: #fff;
+    padding-left: 5px;
+    font-size: 15px;
     font-weight: bold;
 }

@@ -6,7 +6,7 @@ const PokemonFinder = ({handleSearch}) => {
 
     return (
         <div>
-            <input onChange={(e)=> setSearchPokemon(e.target.value)} type='text' className='finder' />
+            <input onChange={(e)=> setSearchPokemon(e.target.value.toLowerCase())} type='text' className='finder' />
             <button onClick={() => handleSearch(searchPokemon)} className='search-button'>Search</button>
         </div>
     )
