@@ -1,3 +1,13 @@
+:root {
+  --red-base: #FF0000;
+  --black-base: #212121;
+  --white-base: #F7F7F7;
+  --blue-base: #2E4C6D;
+  --inputs-radius: 20px 0 20px 0;
+  --inputs-font-size: 15px;
+  --icons-size: 20px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

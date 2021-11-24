@@ -1,0 +1,121 @@
+.control-section {
+    background-color: var(--blue-base);
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.control {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* SEARCH CONTROL */
+.search-control {
+    display: flex;
+    border: solid 3.5px var(--red-base);
+    border-radius: var(--inputs-radius);
+    overflow: hidden;
+}
+
+.input-search {
+    padding: 0 20px;
+    width: 100px;
+    text-align: center;
+    font-size: var(--inputs-font-size);
+    background-color: var(--black-base);
+    color: var(--white-base);
+    border: 0;
+}
+
+.input-search-btn {
+    width: 50px;
+    background-color: var(--black-base);
+    font-size: var(--icons-size);
+    color: var(--white-base);
+    border: 0;
+}
+
+.input-search-btn:hover {
+    background-color: var(--red-base);
+}
+
+/* PAGINATION CONTROLS */
+.pagination-control {
+    display: flex;
+    border: solid 3.5px var(--red-base);
+    border-radius: var(--inputs-radius);
+    overflow: hidden;
+}
+
+.btn-pag {
+    width: 35px;
+    height: 35px;
+    font-size: var(--icons-size);
+    background-color: var(--black-base);
+    border: 0;
+    color: var(--white-base);
+}
+
+.btn-pag:hover {
+    background-color: var(--red-base);
+}
+
+.amount-select {
+    padding: 10px 0;
+    height: 35px;
+    border: 0;
+    text-align: center;
+    background-color: var(--black-base);
+    color: var(--white-base);
+    font-size: var(--inputs-font-size);
+}
+
+/* TYPES INPUT */
+.select-types {
+    width: 140px;
+    text-align: center;
+    background-color: var(--black-base);
+    border: solid 3.5px var(--red-base);
+    border-radius: var(--inputs-radius);
+    color: var(--white-base);
+    font-size: var(--inputs-font-size);
+}
+
+/* AREA BUTTONS */
+.area {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.area-btn {
+    margin: 3px 0;
+    width: 100px;
+    height: 35px;
+    border: solid 3px var(--red-base);
+    background-color: var(--black-base);
+    color: var(--white-base);
+    border-radius: var(--inputs-radius);
+}
+
+/* SPECIALS BUTTONS */
+.specials {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.special-btn {
+    margin: 3px 0;
+    width: 200px;
+    height: 35px;
+    border: solid 3px var(--red-base);
+    background-color: var(--black-base);
+    color: var(--white-base);
+    border-radius: var(--inputs-radius);
+}

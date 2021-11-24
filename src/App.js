@@ -1,13 +1,9 @@
 import './App.css';
-import Banner from './Banner.js';
-import StartPage from './principal/StartPage';
-import Pokedex from './body/Pokedex';
+import Pokedex from "./Pokedex.js"
 
 function App() {
   return (
     <div className="App">
-      <Banner />
-      <StartPage />
       <Pokedex />
     </div>
   );
