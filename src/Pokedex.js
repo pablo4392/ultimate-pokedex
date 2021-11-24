@@ -7,16 +7,16 @@ import "./pokedex.css"
 const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
     const [count, setCount] = useState(0);
-    const [amount, setAmount] = useState(9);
+    const [amount, setAmount] = useState(4);
     const [pokemonTypes, setPokemonTypes] = useState(null)
     const [typeTitle, setTypeTitle] = useState('')
     const [pokemonByType, setPokemonByType] = useState([])
 
     useEffect(() => {
-        Services.allPokemon(9, count).then(response => {
+        Services.allPokemon(amount, count).then(response => {
             setPokemons(response.data.results)
         })
-    }, [count]);
+    }, [amount, count]);
 
     useEffect(() => {
         if(pokemonTypes){
@@ -35,7 +35,7 @@ const Pokedex = () => {
         }
     }
     const nextPokes = () => {
-        if(count >= 1117) {
+        if(count >= 1116) {
             setCount(count + 0)
         } else {
             setCount(count + amount)
@@ -47,7 +47,7 @@ const Pokedex = () => {
     ))
 
     const pokemonByTypeArray = pokemonByType.map(value => (
-        <PokeCard key={value.name} pokemonUrl={value.url} />
+        <PokeCard key={value.pokemon.name} pokemonUrl={value.pokemon.url} />
     ))
 
     return (
@@ -56,28 +56,31 @@ const Pokedex = () => {
                 handleSelectTypes={(e) => setPokemonTypes(e.target.value)}
                 handleClickBack={backPokes} 
                 handleClickNext={nextPokes} 
-                handleAmount={(e) => setAmount(e.target.value)}
-                handleKantoButton={() => setCount(0)}
-                handleJohtoButton={() => setCount(151)}
-                handleHoennButton={() => setCount(251)}
-                handleSinnohButton={() => setCount(386)}
-                handleTeseliaButton={() => setCount(493)}
-                handleKalosButton={() => setCount(649)}
-                handleAlolaButton={() => setCount(721)}
-                handleGalarButton={() => setCount(809)}
-                handleMegaEvolutions={() => setCount(930)}
-                handleAlolaSpecial={() => setCount(988)}
-                handleGmax={() => setCount(1083)}
+                handleAmount={(e) => setAmount(Number(e.target.value))}
+                handleKantoButton={() => {setPokemonTypes(null); setCount(0)}}
+                handleJohtoButton={() => {setPokemonTypes(null); setCount(151)}}
+                handleHoennButton={() => {setPokemonTypes(null); setCount(251)}}
+                handleSinnohButton={() => {setPokemonTypes(null); setCount(386)}}
+                handleTeseliaButton={() => {setPokemonTypes(null); setCount(494)}}
+                handleKalosButton={() => {setPokemonTypes(null); setCount(649)}}
+                handleAlolaButton={() => {setPokemonTypes(null); setCount(721)}}
+                handleGalarButton={() => {setPokemonTypes(null); setCount(809)}}
+                handleMegaEvolutions={() => {setPokemonTypes(null); setCount(930)}}
+                handleAlolaSpecial={() => {setPokemonTypes(null); setCount(988)}}
+                handleGmax={() => {setPokemonTypes(null); setCount(1083)}}
             />
-            <div className="pokemon-grid">
+            <div>
                 {pokemonTypes ? (
                     <>
-                    
+                        <h2 className="type-title">{typeTitle}</h2>
+                        <div className="pokemon-grid">
+                            {pokemonByTypeArray}
+                        </div>
                     </>
                 ):(
-                    <>
+                    <div className="pokemon-grid">
                         {pokemonArray}
-                    </>
+                    </div>
                 )}
             </div>
         </div>

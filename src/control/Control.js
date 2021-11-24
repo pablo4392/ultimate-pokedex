@@ -28,10 +28,13 @@ const Control = ({
                         <FontAwesomeIcon icon={faAngleDoubleLeft} />
                     </button>
                     <select className="amount-select" onChange={handleAmount}>
-                        <option value={4}>4</option>
-                        <option value={8}>8</option>
-                        <option value={12}>12</option>
-                        <option value={24}>24</option>
+                        <option value='1'>1</option>
+                        <option value='3'>3</option>
+                        <option value='5'>5</option>
+                        <option value='8'>8</option>
+                        <option value='7'>7</option>
+                        <option value='9'>9</option>
+                        <option value='12'>12</option>
                     </select>
                     <button className="btn-pag" onClick={handleClickNext}>
                         <FontAwesomeIcon icon={faAngleDoubleRight} />
