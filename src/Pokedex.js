@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Control from "./control/Control.js";
 import Services from "./service/Services.js";
 import PokeCard from "./components/PokeCard.js";
+import PokemonColors from "./components/pokecard/PokemonColors.js";
 import "./pokedex.css"
-import Spinner from "./spinner/Spinner.js";
 
 const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
@@ -12,11 +12,10 @@ const Pokedex = () => {
     const [pokemonTypes, setPokemonTypes] = useState(null);
     const [typeTitle, setTypeTitle] = useState('');
     const [pokemonByType, setPokemonByType] = useState([]);
-    const [hasData, setHasData] = useState(false);
-
+    const [colorTitle, setColorTitle] = useState('');
+    
     useEffect(() => {
         Services.allPokemon(amount, count).then(response => {
-            setHasData(true);
             setPokemons(response.data.results);
         })
     }, [amount, count]);
@@ -24,6 +23,7 @@ const Pokedex = () => {
     useEffect(() => {
         if(pokemonTypes){
             Services.typesPokemon(pokemonTypes).then(response => {
+                setColorTitle(response.data.name);
                 setTypeTitle(response.data.name.toUpperCase());
                 setPokemonByType(response.data.pokemon)
             })
@@ -38,14 +38,12 @@ const Pokedex = () => {
         }
     }
     const nextPokes = () => {
-        if(count >= 1117) {
-            setCount(1117)
+        if(count >= 1278) {
+            setCount(1278)
         } else {
             setCount(count + amount)
         }
     }
-
-    console.log(pokemonByType.length)
 
     const pokemonArray = pokemons.map(value => (
         <PokeCard key={value.name} pokemonUrl={value.url} />
@@ -70,32 +68,29 @@ const Pokedex = () => {
                 handleKalosButton={() => {setPokemonTypes(null); setCount(649)}}
                 handleAlolaButton={() => {setPokemonTypes(null); setCount(721)}}
                 handleGalarButton={() => {setPokemonTypes(null); setCount(809)}}
-                handleMegaEvolutions={() => {setPokemonTypes(null); setCount(930)}}
-                handleAlolaSpecial={() => {setPokemonTypes(null); setCount(988)}}
-                handleGmax={() => {setPokemonTypes(null); setCount(1083)}}
+                handlePaldeaButton={() => {setPokemonTypes(null); setCount(905)}}
+                handleMegaEvolutions={() => {setPokemonTypes(null); setCount(1040)}}
+                handleAlolaSpecial={() => {setPokemonTypes(null); setCount(1098)}}
+                handleGalarSpecial={() => {setPokemonTypes(null); setCount(1168)}}
+                handleHisuiSpecial={() => {setPokemonTypes(null); setCount(1236)}}
+                handleGmax={() => {setPokemonTypes(null); setCount(1202)}}
             />
             <div>
-                {hasData ? (
+                {pokemonTypes ? (
                     <>
-                        {pokemonTypes ? (
-                            <>
-                                <h2 className="type-title">{typeTitle}</h2>
-                                <div className="pokemon-grid">
-                                    {pokemonByTypeArray}
-                                </div>
-                            </>
-                        ):(
-                            <div className="pokemon-grid">
-                                {pokemonArray}
-                            </div>
-                        )}
+                        <h2 className="type-title" style={{background: PokemonColors(colorTitle)}}>{typeTitle}</h2>
+                        <div className="pokemon-grid">
+                            {pokemonByTypeArray}
+                        </div>
                     </>
                 ):(
                     <>
-                        <Spinner />
+                        {/* <h2>{nameArea}</h2> */}
+                        <div className="pokemon-grid">
+                            {pokemonArray}
+                        </div>
                     </>
-                )}
-                
+                )}                
             </div>
         </div>
     )

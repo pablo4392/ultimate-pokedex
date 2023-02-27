@@ -6,6 +6,15 @@
   --inputs-radius: 20px 0 20px 0;
   --inputs-font-size: 15px;
   --icons-size: 20px;
+  --kanto-button: #2F3A8F;
+  --johto-button: red;
+  --hoenn-button: blue;
+  --sinnoh-button: green;
+  --teselia-button: #D77FA1;
+  --kalos-button: purple;
+  --alola-button: yellow;
+  --galar-button: orange;
+  --paldea-button: #ECF2FF;
 }
 
 body {

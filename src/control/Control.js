@@ -16,8 +16,11 @@ const Control = ({
         handleKalosButton,
         handleAlolaButton,
         handleGalarButton,
+        handlePaldeaButton,
         handleMegaEvolutions,
         handleAlolaSpecial,
+        handleGalarSpecial,
+        handleHisuiSpecial,
         handleGmax
     }) => {
     return(
@@ -32,6 +35,7 @@ const Control = ({
                         <option value='3'>3</option>
                         <option value='4' selected>4</option>
                         <option value='8'>8</option>
+                        <option value='9'>9</option>
                         <option value='12'>12</option>
                     </select>
                     <button className="btn-pag" onClick={handleClickNext}>
@@ -49,10 +53,13 @@ const Control = ({
                 <button className="area-btn kalos" onClick={handleKalosButton}> Kalos </button>
                 <button className="area-btn alola" onClick={handleAlolaButton}> Alola </button>
                 <button className="area-btn galar" onClick={handleGalarButton}> Galar </button>
+                <button className="area-btn paldea" onClick={handlePaldeaButton}> Paldea </button>
             </div>
             <div className="specials">
                 <button className="special-btn" onClick={handleMegaEvolutions}>Mega Evolutions</button>
                 <button className="special-btn" onClick={handleAlolaSpecial}>Alola Special</button>
+                <button className="special-btn" onClick={handleGalarSpecial}>Galar Special</button>
+                <button className="special-btn" onClick={handleHisuiSpecial}>Hisui Special</button>
                 <button className="special-btn" onClick={handleGmax}>G-Max</button>
             </div>
         </div>

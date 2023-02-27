@@ -13,4 +13,5 @@
 .type-title {
     font-size: 40px;
     font-family: 'Fredoka One', cursive;
+    color: var(--white-base);
 }

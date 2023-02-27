@@ -96,8 +96,8 @@
     margin: 3px 0;
     width: 100px;
     height: 35px;
+    background-color: transparent;
     border: solid 3px var(--red-base);
-    background-color: var(--black-base);
     color: var(--white-base);
     border-radius: var(--inputs-radius);
 }
@@ -110,12 +110,57 @@
     flex-wrap: wrap;
 }
 
+.kanto:hover {
+    background-color: var(--kanto-button);
+    box-shadow: 0 0 5px var(--kanto-button), 0 0 25px var(--kanto-button), 0 0 50px var(--kanto-button), 0 0 200px var(--kanto-button);
+}
+
+.johto:hover {
+    background-color: var(--johto-button);
+    box-shadow: 0 0 5px var(--johto-button), 0 0 25px var(--johto-button), 0 0 50px var(--johto-button), 0 0 200px var(--johto-button);
+}
+
+.hoenn:hover {
+    background-color: var(--hoenn-button);
+    box-shadow: 0 0 5px var(--hoenn-button), 0 0 25px var(--hoenn-button), 0 0 50px var(--hoenn-button), 0 0 200px var(--hoenn-button);
+}
+
+.sinnoh:hover {
+    background-color: var(--sinnoh-button);
+    box-shadow: 0 0 5px var(--sinnoh-button), 0 0 25px var(--sinnoh-button), 0 0 50px var(--sinnoh-button), 0 0 200px var(--sinnoh-button);
+}
+
+.teselia:hover {
+    background-color: var(--teselia-button);
+    box-shadow: 0 0 5px var(--teselia-button), 0 0 25px var(--teselia-button), 0 0 50px var(--teselia-button), 0 0 200px var(--teselia-button);
+}
+
+.kalos:hover {
+    background-color: var(--kalos-button);
+    box-shadow: 0 0 5px var(--kalos-button), 0 0 25px var(--kalos-button), 0 0 50px var(--kalos-button), 0 0 200px var(--kalos-button);
+}
+
+.alola:hover {
+    background-color: var(--alola-button);
+    box-shadow: 0 0 5px var(--alola-button), 0 0 25px var(--alola-button), 0 0 50px var(--alola-button), 0 0 200px var(--alola-button);
+}
+
+.galar:hover {
+    background-color: var(--galar-button);
+    box-shadow: 0 0 5px var(--galar-button), 0 0 25px var(--galar-button), 0 0 50px var(--galar-button), 0 0 200px var(--galar-button);
+}
+
+.paldea:hover {
+    background-color: var(--paldea-button);
+    box-shadow: 0 0 5px var(--paldea-button), 0 0 25px var(--paldea-button), 0 0 50px var(--paldea-button), 0 0 200px var(--paldea-button);
+}
+
 .special-btn {
     margin: 3px 0;
     width: 200px;
     height: 35px;
     border: solid 3px var(--red-base);
-    background-color: var(--black-base);
+    background-color: transparent;
     color: var(--white-base);
     border-radius: var(--inputs-radius);
 }
