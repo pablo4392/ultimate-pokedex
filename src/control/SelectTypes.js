@@ -17,7 +17,7 @@ const SelectTypes  = ({handleSelectTypes}) => {
 
     return(
         <select className="select-types" onChange={handleSelectTypes}>
-            <option>Chose a type</option>
+            <option value="" selected disabled>Chose a type</option>
             {typesArray}
         </select>
     )

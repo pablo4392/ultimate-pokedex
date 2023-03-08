@@ -1,6 +1,5 @@
 
 const PokemonColors = (type) => {
-
     switch(type) {
       case 'normal': 
         return '#d99879';

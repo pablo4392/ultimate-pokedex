@@ -7,7 +7,7 @@ const Control = ({
         handleSelectTypes,
         handleClickBack, 
         handleClickNext, 
-        handleAmount, 
+        handleLimit, 
         handleKantoButton, 
         handleJohtoButton, 
         handleHoennButton, 
@@ -30,7 +30,7 @@ const Control = ({
                     <button className="btn-pag" onClick={handleClickBack}>
                         <FontAwesomeIcon icon={faAngleDoubleLeft} />
                     </button>
-                    <select className="amount-select" onChange={handleAmount}>
+                    <select className="amount-select" onChange={handleLimit}>
                         <option value='1'>1</option>
                         <option value='3'>3</option>
                         <option value='4' selected>4</option>

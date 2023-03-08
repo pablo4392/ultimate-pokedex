@@ -7,18 +7,18 @@ import "./pokedex.css"
 
 const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
-    const [count, setCount] = useState(0);
-    const [amount, setAmount] = useState(4);
+    const [limit, setLimit] = useState(4);
+    const [offset, setOffset] = useState(0);
     const [pokemonTypes, setPokemonTypes] = useState(null);
     const [typeTitle, setTypeTitle] = useState('');
     const [pokemonByType, setPokemonByType] = useState([]);
     const [colorTitle, setColorTitle] = useState('');
     
     useEffect(() => {
-        Services.allPokemon(amount, count).then(response => {
+        Services.allPokemon(limit, offset).then(response => {
             setPokemons(response.data.results);
         })
-    }, [amount, count]);
+    }, [limit, offset]);
 
     useEffect(() => {
         if(pokemonTypes){
@@ -30,20 +30,21 @@ const Pokedex = () => {
         }
     }, [pokemonTypes])
 
-    const backPokes = () => {
-        if(count === 0) {
-            setCount(0)
+    const previousPokes = () => {
+        if (offset <= 0) {
+          setOffset(0);
         } else {
-            setCount(count - amount)
+          setOffset(offset - limit);
         }
-    }
+    };
+
     const nextPokes = () => {
-        if(count >= 1278) {
-            setCount(1278)
+        if (offset >= 1278) {
+            setOffset(1278);
         } else {
-            setCount(count + amount)
+            setOffset(offset + limit);
         }
-    }
+    };
 
     const pokemonArray = pokemons.map(value => (
         <PokeCard key={value.name} pokemonUrl={value.url} />
@@ -57,23 +58,23 @@ const Pokedex = () => {
         <div>
             <Control 
                 handleSelectTypes={(e) => setPokemonTypes(e.target.value)}
-                handleClickBack={backPokes} 
+                handleClickBack={previousPokes} 
                 handleClickNext={nextPokes} 
-                handleAmount={(e) => setAmount(Number(e.target.value))}
-                handleKantoButton={() => {setPokemonTypes(null); setCount(0)}}
-                handleJohtoButton={() => {setPokemonTypes(null); setCount(151)}}
-                handleHoennButton={() => {setPokemonTypes(null); setCount(251)}}
-                handleSinnohButton={() => {setPokemonTypes(null); setCount(386)}}
-                handleTeseliaButton={() => {setPokemonTypes(null); setCount(494)}}
-                handleKalosButton={() => {setPokemonTypes(null); setCount(649)}}
-                handleAlolaButton={() => {setPokemonTypes(null); setCount(721)}}
-                handleGalarButton={() => {setPokemonTypes(null); setCount(809)}}
-                handlePaldeaButton={() => {setPokemonTypes(null); setCount(905)}}
-                handleMegaEvolutions={() => {setPokemonTypes(null); setCount(1040)}}
-                handleAlolaSpecial={() => {setPokemonTypes(null); setCount(1098)}}
-                handleGalarSpecial={() => {setPokemonTypes(null); setCount(1168)}}
-                handleHisuiSpecial={() => {setPokemonTypes(null); setCount(1236)}}
-                handleGmax={() => {setPokemonTypes(null); setCount(1202)}}
+                handleLimit={(e) => setLimit(Number(e.target.value))}
+                handleKantoButton={() => {setPokemonTypes(null); setOffset(0)}}
+                handleJohtoButton={() => {setPokemonTypes(null); setOffset(151)}}
+                handleHoennButton={() => {setPokemonTypes(null); setOffset(251)}}
+                handleSinnohButton={() => {setPokemonTypes(null); setOffset(386)}}
+                handleTeseliaButton={() => {setPokemonTypes(null); setOffset(494)}}
+                handleKalosButton={() => {setPokemonTypes(null); setOffset(649)}}
+                handleAlolaButton={() => {setPokemonTypes(null); setOffset(721)}}
+                handleGalarButton={() => {setPokemonTypes(null); setOffset(809)}}
+                handlePaldeaButton={() => {setPokemonTypes(null); setOffset(905)}}
+                handleMegaEvolutions={() => {setPokemonTypes(null); setOffset(1042)}}
+                handleAlolaSpecial={() => {setPokemonTypes(null); setOffset(1100)}}
+                handleGalarSpecial={() => {setPokemonTypes(null); setOffset(1170)}}
+                handleHisuiSpecial={() => {setPokemonTypes(null); setOffset(1238)}}
+                handleGmax={() => {setPokemonTypes(null); setOffset(1204)}}
             />
             <div>
                 {pokemonTypes ? (
@@ -85,7 +86,7 @@ const Pokedex = () => {
                     </>
                 ):(
                     <>
-                        {/* <h2>{nameArea}</h2> */}
+                        <h2>Name Area</h2>
                         <div className="pokemon-grid">
                             {pokemonArray}
                         </div>
